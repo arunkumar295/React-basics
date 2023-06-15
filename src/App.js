@@ -5,8 +5,9 @@ import Content from './Content';
 function App() {
   return (
     <div>
+      <Content/>
     <Header />
-    <Content/>
+    
     </div>
   
   );
