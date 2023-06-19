@@ -1,14 +1,18 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 const Content = () => {
+     
     const [name,setName] = useState("arun")
-    console.log("arun")
-    function nameChange(){
-        const names = ["arun","mani","laddu"];
-        const num= Math.floor(Math.random()*3);
-        setName(names[num]);
-    }
+    const [list,setList] = useState({name:"",age:""})
+    useEffect(() => {
+      console.log(list)
+    }, [list]);
+    // function nameChange(){
+    //     const names = ["arun","mani","laddu"];
+    //     const num= Math.floor(Math.random()*3);
+    //     setName(names[num]);
+    // }
 
     // useState - an data changeing with its original form while interaction with user without refreshing the page 
     // const btnclick = () => {
@@ -36,7 +40,9 @@ const Content = () => {
   return (
     <div>
        <p>hii this is {name} </p>
-       <button onClick={() => nameChange()}>click me</button>
+       <input type='text' placeholder='name' value={list.name} onChange={((e)=> setList({...list,name:e.target.value}))}></input><br></br>
+       <input type='text' placeholder='age' value={list.age} onChange={((e)=> setList({...list,age:e.target.value}))} ></input>
+       {/* <button onClick={() => nameChange()}>click me</button> */}
        {/* <button onClick={() => {btnclick2("arun")} }>click me</button> */}
        {/* <button onClick={sub}>-</button>
        <span>{count}</span>
